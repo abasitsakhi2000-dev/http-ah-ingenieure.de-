@@ -16,20 +16,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  // ⚠️ Ersetzen Sie diese Werte mit Ihren eigenen EmailJS-Zugangsdaten:
-  // 1. Kostenlosen Account anlegen auf https://www.emailjs.com
-  // 2. Email Service verbinden (z.B. Gmail)
-  // 3. Template erstellen mit den Feldern: from_name, from_email, phone, message
-  // 4. Public Key, Service ID und Template ID hier eintragen
-  (function() {
-    emailjs.init({ publicKey: "IHR_PUBLIC_KEY" }); // ← ersetzen
-  })();
-  const EMAILJS_SERVICE_ID  = "IHR_SERVICE_ID";   // ← ersetzen
-  const EMAILJS_TEMPLATE_ID = "IHR_TEMPLATE_ID";  // ← ersetzen
+  emailjs.init({ publicKey: "sds-kbzJ3s7BHXYaN" });
+
+  const EMAILJS_SERVICE_ID  = "service_0xtq7js";
+  const EMAILJS_TEMPLATE_ID = "template_5bvpzse";
 </script>
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -496,14 +492,7 @@ section { padding: 100px 80px; }
   text-transform: uppercase;
   margin-bottom: 28px;
 }
-.section-label::before {
-  content: '';
-  display: block;
-  width: 32px;
-  height: 2px;
-  background: var(--accent);
-  flex-shrink: 0;
-}
+
 
 /* ══════════════════════════════
    ÜBER UNS
@@ -1433,24 +1422,10 @@ footer {
         </div>
       </div>
       <div class="kontakt-info-item">
-        <div class="kontakt-info-icon"><i class="fa-solid fa-location-dot"></i></div>
-        <div class="kontakt-info-details">
-          <span class="info-label">Adresse</span>
-          <a href="https://maps.google.com/?q=Seligenthaler+Straße+52a+84034+Landshut" target="_blank">Seligenthaler Straße 52a, 84034 Landshut</a>
-        </div>
-      </div>
-      <div class="kontakt-info-item">
-        <div class="kontakt-info-icon"><i class="fa-solid fa-phone"></i></div>
-        <div class="kontakt-info-details">
-          <span class="info-label">Telefon</span>
-          <a href="tel:017683355516">0176 / 83355516</a>
-        </div>
-      </div>
-      <div class="kontakt-info-item">
         <div class="kontakt-info-icon"><i class="fa-solid fa-envelope"></i></div>
         <div class="kontakt-info-details">
           <span class="info-label">E-Mail</span>
-          <a href="mailto:info@ah-ingenieure.de">info@ah-ingenieure.de</a>
+          <a href="mailto:hoerweg@ah-ingenieure.de">hoerweg@ah-ingenieure.de</a>
         </div>
       </div>
       <div class="kontakt-info-item">
@@ -1458,13 +1433,6 @@ footer {
         <div class="kontakt-info-details">
           <span class="info-label">Website</span>
           <a href="https://ah-ingenieure.de" target="_blank">ah-ingenieure.de</a>
-        </div>
-      </div>
-      <div class="kontakt-info-item">
-        <div class="kontakt-info-icon"><i class="fa-brands fa-facebook-f"></i></div>
-        <div class="kontakt-info-details">
-          <span class="info-label">Facebook</span>
-          <a href="https://facebook.com/ah-ingenieure" target="_blank">facebook.com/ah-ingenieure</a>
         </div>
       </div>
       <div class="kontakt-info-item">
@@ -1476,24 +1444,24 @@ footer {
       </div>
     </div>
   </div>
-  <div class="kontakt-form reveal-right">
+ <div class="kontakt-form reveal-right">
     <div class="form-row">
       <div class="form-group">
         <label for="f-name">Name *</label>
-        <input id="f-name" type="text" placeholder="Max Mustermann" autocomplete="name">
+        <input id="f-name" name="name" type="text" placeholder="Max Mustermann" autocomplete="name">
       </div>
       <div class="form-group">
         <label for="f-phone">Telefon</label>
-        <input id="f-phone" type="tel" placeholder="+49 89 …" autocomplete="tel">
+        <input id="f-phone" name="phone" type="tel" placeholder="+49 89 …" autocomplete="tel">
       </div>
     </div>
     <div class="form-group">
       <label for="f-email">E-Mail *</label>
-      <input id="f-email" type="email" placeholder="ihre@email.de" autocomplete="email">
+      <input id="f-email" name="email" type="email" placeholder="ihre@email.de" autocomplete="email">
     </div>
     <div class="form-group">
       <label for="f-message">Nachricht *</label>
-      <textarea id="f-message" placeholder="Beschreiben Sie kurz Ihr Projekt oder Ihr Anliegen..."></textarea>
+      <textarea id="f-message" name="message" placeholder="Beschreiben Sie kurz Ihr Projekt oder Ihr Anliegen..."></textarea>
     </div>
     <label class="form-group-check">
       <input type="checkbox" id="f-dsgvo">
@@ -1570,7 +1538,6 @@ footer {
     <div class="footer-links">
       <a href="https://ah-ingenieure.de" target="_blank">ah-ingenieure.de</a>
       <a href="https://instagram.com/ah-ingenieure" target="_blank">Instagram</a>
-      <a href="https://facebook.com/ah-ingenieure" target="_blank">Facebook</a>
     </div>
   </div>
   <div class="footer-bottom">
