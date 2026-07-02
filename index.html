@@ -4,22 +4,36 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ah ingenieure – Bauingenieur-Büro in Landshut</title>
-<meta name="description" content="ah ingenieure – Ihr Bauingenieur-Büro in Landshut. Leistungen: Projektaufnahmen, Ausschreibung, Rechnungsprüfung, Bauleitung & Mängelmanagement. VOB-konform, termintreu, persönlich.">
+<meta name="description" content="ah ingenieure – Ihr Bauingenieur-Büro in Landshut. Projektaufnahmen, Ausschreibung, Rechnungsprüfung, Bauleitung & Mängelmanagement. VOB-konform, termintreu.">
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="ah ingenieure – Bauingenieur-Büro Landshut">
 <meta property="og:description" content="Professionelle Bauingenieurleistungen in Landshut & Umgebung. VOB-konform, termintreu und immer vor Ort.">
 <meta property="og:type" content="website">
+<!-- TODO: og:url und og:image auf die finale Domain umstellen, sobald diese feststeht -->
 <meta property="og:url" content="https://ah-ingenieure.de">
+<meta property="og:image" content="https://ah-ingenieure.de/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
 <!-- Favicon als SVG (kein externes Bild nötig) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232a2a2a'/><text x='4' y='24' font-family='sans-serif' font-size='20' font-weight='200' fill='%23c8e600'>ah</text></svg>">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#2a2a2a">
+
+<!-- Plausible Analytics: cookie-los, keine personenbezogenen Daten, kein Consent-Banner nötig -->
+<!-- TODO: data-domain auf die finale Domain umstellen und Domain unter plausible.io verifizieren, sobald diese feststeht -->
+<script defer data-domain="ah-ingenieure.de" src="https://plausible.io/js/script.js"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" integrity="sha384-55jldat+GoQjPHn/QQUMQuFEtiGB4UuSki3Jl9keOFLCpi1mQ5KRzpezhqCTiOOm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/solid.min.css" integrity="sha384-8yO/A/BtltnG0hDxdwmmkza8UAleyDoAD1FhXiH6rsOQQsCho1P6WZP9TpBBH3YP" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/brands.min.css" integrity="sha384-/BRyRRN0wxxRgh/DAXU621go9pdoMHl6LFPiX5Pp8PZYZlKBQCDXj9X9DHx6LOud" crossorigin="anonymous">
 
 <!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
+<script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" integrity="sha384-SALc35EccAf6RzGw4iNsyj7kTPr33K7RoGzYu+7heZhT8s0GZouafRiCg1qy44AS" crossorigin="anonymous"></script>
+<script defer>
   emailjs.init({ publicKey: "sds-kbzJ3s7BHXYaN" });
 
   const EMAILJS_SERVICE_ID  = "service_0xtq7js";
@@ -27,6 +41,35 @@
 </script>
 
 <link rel="stylesheet" href="styles.css">
+
+<!-- Strukturierte Daten für lokale Google-Sichtbarkeit -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ah ingenieure",
+  "image": "https://ah-ingenieure.de/images/og-image.png",
+  "url": "https://ah-ingenieure.de",
+  "telephone": "+49 176 83355516",
+  "email": "hoerweg@ah-ingenieure.de",
+  "description": "Bauingenieur-Büro in Landshut. Leistungen: Projektaufnahmen, Ausschreibung, Rechnungsprüfung, Bauleitung & Mängelmanagement. VOB-konform, termintreu, persönlich.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Seligenthaler Straße 52a",
+    "postalCode": "84034",
+    "addressLocality": "Landshut",
+    "addressCountry": "DE"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Antoniette Hoerweg"
+  },
+  "areaServed": "Landshut und Umgebung",
+  "sameAs": [
+    "https://instagram.com/ah-ingenieure"
+  ]
+}
+</script>
 
 </head>
 <body>
@@ -41,6 +84,7 @@
 </div>
 
 <!-- NAVBAR -->
+<header>
 <nav class="navbar" id="navbar">
   <a href="#" class="logo">
     <div class="logo-top">ah</div>
@@ -53,27 +97,29 @@
     <li><a href="#kontakt">Kontakt</a></li>
     <li><a href="#kontakt" class="btn-nav">Anfrage stellen</a></li>
   </ul>
-  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menü öffnen">
+  <button class="mobile-menu-btn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false">
     <i class="fa-solid fa-bars" id="menuIcon"></i>
   </button>
 </nav>
+</header>
 
+<main>
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-portrait">
-    <img src="images/Image7.jpg" alt="Ich bin eine perfekte Bauingenieurin">
+    <img src="images/Image7.jpg" alt="Antoniette Hoerweg, Bauingenieurin bei ah ingenieure">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-label">Bauingenieurin · Dipl.-Ing.</div>
-    <div style="display:flex;flex-direction:column;">
+    <h1 style="display:flex;flex-direction:column;">
       <div class="hero-title">
         ah
         <span class="hero-title-dash"></span>
       </div>
       <div class="hero-subtitle">ingenieure</div>
-    </div>
+    </h1>
     <p class="hero-desc">Kompetente Bauingenieurleistungen aus einer Hand — von der Aufnahme über die Ausschreibung bis zur Abrechnung.</p>
     <div class="hero-btns">
       <a href="#leistungen" class="btn-primary">Leistungen entdecken</a>
@@ -180,56 +226,47 @@
     <p class="reveal-right">Eine Auswahl unserer erfolgreich durchgeführten Projekte aus dem Hochbau, Gewerbebau und der Infrastruktur.</p>
   </div>
 
-  <div class="projekte-rows">
-    <!-- Row 1: 2/3 + 1/3 -->
-    <div class="projekt-row projekt-row--a">
-      <div class="projekt-card reveal-scale delay-1">
-        <img src="images/image1.jpg" alt="Ich bin eine perfekte Bauingenieurin">
-        <div class="projekt-info">
-          <div class="projekt-tags"><span class="tag">Neubau</span><span class="tag-year">2024</span></div>
-          <div class="projekt-name">Klinikneubau Landshut</div>
-        </div>
-      </div>
-      <div class="projekt-card reveal-scale delay-2">
-        <img src="images/image2.jpg" alt="Ich bin eine perfekte Bauingenieurin">
-        <div class="projekt-info">
-          <div class="projekt-tags"><span class="tag">Rohbau</span><span class="tag-year">2024</span></div>
-          <div class="projekt-name">Wohnkomplex München</div>
-        </div>
+  <div class="projekte-grid">
+    <div class="projekt-card reveal-scale delay-1">
+      <span class="projekt-num">01</span>
+      <div class="projekt-info">
+        <div class="projekt-tags"><span class="tag">Neubau</span><span class="tag-year">2024</span></div>
+        <div class="projekt-name">Klinikneubau Landshut</div>
       </div>
     </div>
-    <!-- Row 2: 1/3 + 2/3 -->
-    <div class="projekt-row projekt-row--b">
-      <div class="projekt-card reveal-scale delay-1">
-        <img src="images/image3.jpg" alt="Ich bin eine perfekte Bauingenieurin">
-        <div class="projekt-info">
-          <div class="projekt-tags"><span class="tag">Infrastruktur</span><span class="tag-year">2023</span></div>
-          <div class="projekt-name">Gerüstbau Außenfassade</div>
-        </div>
-      </div>
-      <div class="projekt-card reveal-scale delay-2">
-        <img src="images/image4.jpg" alt="Ich bin eine perfekte Bauingenieurin">
-        <div class="projekt-info">
-          <div class="projekt-tags"><span class="tag">Hochbau</span><span class="tag-year">2023</span></div>
-          <div class="projekt-name">Gewerbepark Landshut Ost</div>
-        </div>
+    <div class="projekt-card reveal-scale delay-2">
+      <span class="projekt-num">02</span>
+      <div class="projekt-info">
+        <div class="projekt-tags"><span class="tag">Rohbau</span><span class="tag-year">2024</span></div>
+        <div class="projekt-name">Wohnkomplex München</div>
       </div>
     </div>
-    <!-- Row 3: 1/2 + 1/2 -->
-    <div class="projekt-row projekt-row--c">
-      <div class="projekt-card reveal-scale delay-1">
-        <img src="images/image5.jpg" alt="Ich bin eine perfekte Bauingenieurin">
-        <div class="projekt-info">
-          <div class="projekt-tags"><span class="tag">Sanierung</span><span class="tag-year">2022</span></div>
-          <div class="projekt-name">Sanierung Altbau Landshut</div>
-        </div>
+    <div class="projekt-card reveal-scale delay-3">
+      <span class="projekt-num">03</span>
+      <div class="projekt-info">
+        <div class="projekt-tags"><span class="tag">Infrastruktur</span><span class="tag-year">2023</span></div>
+        <div class="projekt-name">Gerüstbau Außenfassade</div>
       </div>
-      <div class="projekt-card reveal-scale delay-2">
-        <img src="images/image6.jpg" alt="Ich bin eine perfekte Bauingenieurin">
-        <div class="projekt-info">
-          <div class="projekt-tags"><span class="tag">Industrie</span><span class="tag-year">2022</span></div>
-          <div class="projekt-name">Logistikzentrum Ingolstadt</div>
-        </div>
+    </div>
+    <div class="projekt-card reveal-scale delay-1">
+      <span class="projekt-num">04</span>
+      <div class="projekt-info">
+        <div class="projekt-tags"><span class="tag">Hochbau</span><span class="tag-year">2023</span></div>
+        <div class="projekt-name">Gewerbepark Landshut Ost</div>
+      </div>
+    </div>
+    <div class="projekt-card reveal-scale delay-2">
+      <span class="projekt-num">05</span>
+      <div class="projekt-info">
+        <div class="projekt-tags"><span class="tag">Sanierung</span><span class="tag-year">2022</span></div>
+        <div class="projekt-name">Sanierung Altbau Landshut</div>
+      </div>
+    </div>
+    <div class="projekt-card reveal-scale delay-3">
+      <span class="projekt-num">06</span>
+      <div class="projekt-info">
+        <div class="projekt-tags"><span class="tag">Industrie</span><span class="tag-year">2022</span></div>
+        <div class="projekt-name">Logistikzentrum Ingolstadt</div>
       </div>
     </div>
   </div>
@@ -260,6 +297,13 @@
         </div>
       </div>
       <div class="kontakt-info-item">
+        <div class="kontakt-info-icon"><i class="fa-solid fa-phone"></i></div>
+        <div class="kontakt-info-details">
+          <span class="info-label">Telefon</span>
+          <a href="tel:+4917683355516">0176 / 83355516</a>
+        </div>
+      </div>
+      <div class="kontakt-info-item">
         <div class="kontakt-info-icon"><i class="fa-solid fa-envelope"></i></div>
         <div class="kontakt-info-details">
           <span class="info-label">E-Mail</span>
@@ -270,14 +314,14 @@
         <div class="kontakt-info-icon"><i class="fa-solid fa-globe"></i></div>
         <div class="kontakt-info-details">
           <span class="info-label">Website</span>
-          <a href="https://ah-ingenieure.de" target="_blank">ah-ingenieure.de</a>
+          <a href="https://ah-ingenieure.de" target="_blank" rel="noopener noreferrer">ah-ingenieure.de</a>
         </div>
       </div>
       <div class="kontakt-info-item">
         <div class="kontakt-info-icon"><i class="fa-brands fa-instagram"></i></div>
         <div class="kontakt-info-details">
           <span class="info-label">Instagram</span>
-          <a href="https://instagram.com/ah-ingenieure" target="_blank">@ah-ingenieure</a>
+          <a href="https://instagram.com/ah-ingenieure" target="_blank" rel="noopener noreferrer">@ah-ingenieure</a>
         </div>
       </div>
     </div>
@@ -286,7 +330,7 @@
     <div class="form-row">
       <div class="form-group">
         <label for="f-name">Name *</label>
-        <input id="f-name" name="name" type="text" placeholder="Max Mustermann" autocomplete="name">
+        <input id="f-name" name="name" type="text" placeholder="Max Mustermann" autocomplete="name" required aria-required="true">
       </div>
       <div class="form-group">
         <label for="f-phone">Telefon</label>
@@ -295,26 +339,31 @@
     </div>
     <div class="form-group">
       <label for="f-email">E-Mail *</label>
-      <input id="f-email" name="email" type="email" placeholder="ihre@email.de" autocomplete="email">
+      <input id="f-email" name="email" type="email" placeholder="ihre@email.de" autocomplete="email" required aria-required="true">
     </div>
     <div class="form-group">
       <label for="f-message">Nachricht *</label>
-      <textarea id="f-message" name="message" placeholder="Beschreiben Sie kurz Ihr Projekt oder Ihr Anliegen..."></textarea>
+      <textarea id="f-message" name="message" placeholder="Beschreiben Sie kurz Ihr Projekt oder Ihr Anliegen..." required aria-required="true"></textarea>
+    </div>
+    <div class="form-group" style="position:absolute;left:-9999px;" aria-hidden="true">
+      <label for="f-website">Website</label>
+      <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
     </div>
     <label class="form-group-check">
-      <input type="checkbox" id="f-dsgvo">
+      <input type="checkbox" id="f-dsgvo" required aria-required="true">
       <span>Ich habe die <a href="#" onclick="openModal('datenschutz'); return false;">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage einverstanden. *</span>
     </label>
     <button class="btn-submit" id="submitBtn" type="button" onclick="submitForm()">Anfrage absenden &#8594;</button>
     <div class="form-feedback" id="formFeedback"></div>
   </div>
 </section>
+</main>
 
 <!-- IMPRESSUM MODAL -->
-<div class="modal-overlay" id="modal-impressum">
+<div class="modal-overlay" id="modal-impressum" role="dialog" aria-modal="true" aria-labelledby="modal-impressum-title">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('impressum')" aria-label="Schließen"><i class="fa-solid fa-xmark"></i></button>
-    <h2>Impressum</h2>
+    <h2 id="modal-impressum-title">Impressum</h2>
     <h3>Angaben gemäß § 5 TMG</h3>
     <address>
       ah ingenieure<br>
@@ -334,7 +383,7 @@
     <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
     <p>Antoniette Hoerweg<br>Seligenthaler Straße 52a, 84034 Landshut</p>
     <h3>Streitschlichtung</h3>
-    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank">https://ec.europa.eu/consumers/odr/</a>.<br>
+    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br>
     Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
     <h3>Haftung für Inhalte</h3>
     <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
@@ -343,10 +392,10 @@
 </div>
 
 <!-- DATENSCHUTZ MODAL -->
-<div class="modal-overlay" id="modal-datenschutz">
+<div class="modal-overlay" id="modal-datenschutz" role="dialog" aria-modal="true" aria-labelledby="modal-datenschutz-title">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal('datenschutz')" aria-label="Schließen"><i class="fa-solid fa-xmark"></i></button>
-    <h2>Datenschutzerklärung</h2>
+    <h2 id="modal-datenschutz-title">Datenschutzerklärung</h2>
     <h3>1. Verantwortlicher</h3>
     <p>Antoniette Hoerweg, ah ingenieure, Seligenthaler Straße 52a, 84034 Landshut<br>
     E-Mail: <a href="mailto:info@ah-ingenieure.de">info@ah-ingenieure.de</a></p>
@@ -359,9 +408,11 @@
     <h3>5. Ihre Rechte</h3>
     <p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch (Art. 21 DSGVO). Beschwerden können Sie bei der zuständigen Aufsichtsbehörde einreichen (Bayerisches Landesamt für Datenschutzaufsicht, www.lda.bayern.de).</p>
     <h3>6. Kontaktformular</h3>
-    <p>Bei Nutzung unseres Kontaktformulars werden die eingegebenen Daten per E-Mail an uns übermittelt. Die Übertragung erfolgt verschlüsselt über den Dienst EmailJS. Nähere Informationen: <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank">EmailJS Datenschutz</a>.</p>
+    <p>Bei Nutzung unseres Kontaktformulars werden die eingegebenen Daten per E-Mail an uns übermittelt. Die Übertragung erfolgt verschlüsselt über den Dienst EmailJS. Nähere Informationen: <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">EmailJS Datenschutz</a>.</p>
     <h3>7. Cookies</h3>
-    <p>Diese Website verwendet keine Tracking-Cookies und keine Analyse-Tools.</p>
+    <p>Diese Website verwendet keine Tracking-Cookies.</p>
+    <h3>8. Webanalyse mit Plausible Analytics</h3>
+    <p>Wir nutzen den Analysedienst Plausible zur anonymen Auswertung von Besucherzahlen. Plausible setzt keine Cookies und erhebt keine personenbezogenen Daten; es werden keine Profile über einzelne Nutzer erstellt und keine Daten an Dritte weitergegeben oder mit anderen Diensten zusammengeführt. Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) an der bedarfsgerechten Gestaltung unserer Website. Weitere Informationen: <a href="https://plausible.io/data-policy" target="_blank" rel="noopener noreferrer">Plausible Datenrichtlinie</a>.</p>
     <p style="margin-top:32px;font-size:12px;color:var(--text-gray);">⚠️ Hinweis: Diese Datenschutzerklärung ist ein Muster und wir sollen vor Veröffentlichung von einem Rechtsanwalt prüfen oder uns informieren</p>
   </div>
 </div>
@@ -374,8 +425,8 @@
       <div class="logo-sub">ingenieure</div>
     </a>
     <div class="footer-links">
-      <a href="https://ah-ingenieure.de" target="_blank">ah-ingenieure.de</a>
-      <a href="https://instagram.com/ah-ingenieure" target="_blank">Instagram</a>
+      <a href="https://ah-ingenieure.de" target="_blank" rel="noopener noreferrer">ah-ingenieure.de</a>
+      <a href="https://instagram.com/ah-ingenieure" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -401,6 +452,8 @@ function openMobileMenu() {
   mobileNav.style.display = 'flex';
   setTimeout(() => mobileNav.style.opacity = '1', 10);
   menuIcon.className = 'fa-solid fa-xmark';
+  menuBtn.setAttribute('aria-label', 'Menü schließen');
+  menuBtn.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
 }
 function closeMobileMenu() {
@@ -408,6 +461,8 @@ function closeMobileMenu() {
   mobileNav.style.opacity = '0';
   setTimeout(() => { mobileNav.style.display = 'none'; }, 300);
   menuIcon.className = 'fa-solid fa-bars';
+  menuBtn.setAttribute('aria-label', 'Menü öffnen');
+  menuBtn.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
 }
 menuBtn.addEventListener('click', () => menuOpen ? closeMobileMenu() : openMobileMenu());
@@ -524,8 +579,12 @@ function submitForm() {
   const phone    = document.getElementById('f-phone');
   const message  = document.getElementById('f-message');
   const dsgvo    = document.getElementById('f-dsgvo');
+  const website  = document.getElementById('f-website');
   const btn      = document.getElementById('submitBtn');
   const feedback = document.getElementById('formFeedback');
+
+  // Honeypot: Bots füllen dieses versteckte Feld aus, Menschen nicht
+  if (website.value.trim()) return;
 
   // Reset states
   [name, email, message].forEach(el => el.classList.remove('invalid'));
