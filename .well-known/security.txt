@@ -1,0 +1,4 @@
+Contact: mailto:hoerweg@ah-ingenieure.de
+Preferred-Languages: de, en
+Canonical: https://www.ah-ingenieure.de/.well-known/security.txt
+Expires: 2027-08-13T00:00:00.000Z
