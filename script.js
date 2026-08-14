@@ -170,7 +170,7 @@ document.addEventListener('keydown', function(e) {
   acceptBtn.addEventListener('click', () => {
     banner.classList.remove('visible');
     syncBannerHeight();
-    try { localStorage.setItem(CONSENT_KEY, '1'); } catch (e) { /* ignorieren */ }
+    try { localStorage.setItem(CONSENT_KEY, '1'); } catch (e) {}
   });
 })();
 
