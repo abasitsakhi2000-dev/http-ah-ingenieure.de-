@@ -149,12 +149,27 @@ document.addEventListener('keydown', function(e) {
     alreadyAcknowledged = !!localStorage.getItem(CONSENT_KEY);
   } catch (e) { /* localStorage nicht verfügbar (z. B. privater Modus) */ }
 
-  if (!alreadyAcknowledged) {
-    setTimeout(() => banner.classList.add('visible'), 600);
+  // Banner sitzt oben fest; Navbar & Mobilmenü rücken per CSS-Variable
+  // um die Bannerhöhe nach unten, damit nichts verdeckt wird.
+  function syncBannerHeight() {
+    const height = banner.classList.contains('visible') ? banner.offsetHeight : 0;
+    document.documentElement.style.setProperty('--cookie-banner-h', height + 'px');
   }
+
+  if (!alreadyAcknowledged) {
+    setTimeout(() => {
+      banner.classList.add('visible');
+      syncBannerHeight();
+    }, 600);
+  }
+
+  window.addEventListener('resize', () => {
+    if (banner.classList.contains('visible')) syncBannerHeight();
+  }, { passive: true });
 
   acceptBtn.addEventListener('click', () => {
     banner.classList.remove('visible');
+    syncBannerHeight();
     try { localStorage.setItem(CONSENT_KEY, '1'); } catch (e) { /* ignorieren */ }
   });
 })();
