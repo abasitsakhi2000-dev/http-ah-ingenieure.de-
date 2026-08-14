@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ah-ingenieure.de/sitemap.xml
+Sitemap: https://www.ah-ingenieure.de/sitemap.xml

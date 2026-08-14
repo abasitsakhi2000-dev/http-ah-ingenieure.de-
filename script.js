@@ -137,6 +137,29 @@ document.addEventListener('keydown', function(e) {
 });
 
 // ═══════════════════════════════
+// COOKIE-HINWEIS
+// ═══════════════════════════════
+(function () {
+  const banner = document.getElementById('cookieBanner');
+  const acceptBtn = document.getElementById('cookieAcceptBtn');
+  if (!banner || !acceptBtn) return;
+  const CONSENT_KEY = 'cookie-hinweis-bestaetigt';
+  let alreadyAcknowledged = false;
+  try {
+    alreadyAcknowledged = !!localStorage.getItem(CONSENT_KEY);
+  } catch (e) { /* localStorage nicht verfügbar (z. B. privater Modus) */ }
+
+  if (!alreadyAcknowledged) {
+    setTimeout(() => banner.classList.add('visible'), 600);
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    banner.classList.remove('visible');
+    try { localStorage.setItem(CONSENT_KEY, '1'); } catch (e) { /* ignorieren */ }
+  });
+})();
+
+// ═══════════════════════════════
 // KONTAKTFORMULAR (EmailJS)
 // ═══════════════════════════════
 function submitForm() {
