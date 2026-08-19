@@ -1,5 +1,7 @@
 ﻿*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+.icon { width: 1em; height: 1em; display: inline-block; fill: currentColor; vertical-align: -0.125em; }
+
 :root {
   --bg-dark: #2a2a2a;
   --bg-darker: #222222;

@@ -10,14 +10,14 @@ if (typeof emailjs !== 'undefined') {
 // ═══════════════════════════════
 const menuBtn = document.getElementById('menuBtn');
 const mobileNav = document.getElementById('mobileNav');
-const menuIcon = document.getElementById('menuIcon');
+const menuIconUse = document.getElementById('menuIconUse');
 let menuOpen = false;
 
 function openMobileMenu() {
   menuOpen = true;
   mobileNav.style.display = 'flex';
   setTimeout(() => mobileNav.style.opacity = '1', 10);
-  menuIcon.className = 'fa-solid fa-xmark';
+  menuIconUse.setAttribute('href', '#icon-xmark');
   menuBtn.setAttribute('aria-label', 'Menü schließen');
   menuBtn.setAttribute('aria-expanded', 'true');
   document.body.style.overflow = 'hidden';
@@ -26,7 +26,7 @@ function closeMobileMenu() {
   menuOpen = false;
   mobileNav.style.opacity = '0';
   setTimeout(() => { mobileNav.style.display = 'none'; }, 300);
-  menuIcon.className = 'fa-solid fa-bars';
+  menuIconUse.setAttribute('href', '#icon-bars');
   menuBtn.setAttribute('aria-label', 'Menü öffnen');
   menuBtn.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
@@ -159,7 +159,7 @@ document.addEventListener('keydown', function(e) {
   if (!alreadyAcknowledged) {
     setTimeout(() => {
       banner.classList.add('visible');
-      syncBannerHeight();
+      requestAnimationFrame(syncBannerHeight);
     }, 600);
   }
 
