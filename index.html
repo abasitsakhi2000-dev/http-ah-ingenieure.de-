@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://plausible.io; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com https://plausible.io; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+<!-- CSP als <meta>-Tag, da GitHub Pages keine eigenen HTTP-Header senden kann.
+     Achtung: frame-ancestors wirkt im <meta>-Tag NICHT (nur als echter Header) –
+     der Frame-Schutz läuft ersatzweise über script.js. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <title>ah ingenieure – Bauingenieur-Büro in Landshut</title>
 <meta name="description" content="ah ingenieure – Ihr Bauingenieur-Büro in Landshut. Projektaufnahmen, Ausschreibung, Rechnungsprüfung, Bauleitung & Mängelmanagement. VOB-konform, termintreu.">
@@ -28,10 +31,6 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <meta name="theme-color" content="#2a2a2a">
-
-<!-- Plausible Analytics: cookie-los, keine personenbezogenen Daten, kein Consent-Banner nötig -->
-<!-- Hinweis: wird erst aktiv, sobald bei plausible.io ein Konto angelegt und die Domain verifiziert ist -->
-<script defer data-domain="www.ah-ingenieure.de" src="https://plausible.io/js/script.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,9 +64,6 @@
     "name": "Antoniette Hoerweg"
   },
   "areaServed": ["Landshut", "München", "Niederbayern"],
-  "sameAs": [
-    "https://instagram.com/ah-ingenieure"
-  ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Bauingenieurleistungen",
@@ -85,6 +81,9 @@
 
 </head>
 <body>
+
+<!-- Sprunglink für Tastatur- und Screenreader-Nutzung (nur bei Fokus sichtbar) -->
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
 <!-- Icon-Sprite: selbst gehostete Icons statt externem Font-Awesome-CDN (Performance & Datenschutz). Icons: Font Awesome Free (CC BY 4.0), https://fontawesome.com/license/free -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -140,12 +139,12 @@
 </nav>
 </header>
 
-<main>
+<main id="inhalt" tabindex="-1">
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-portrait">
-    <img src="images/Image7.jpg" alt="Antoniette Hoerweg, Bauingenieurin bei ah ingenieure">
+    <img src="images/Image7.jpg" width="1067" height="1600" fetchpriority="high" alt="Antoniette Hoerweg, Bauingenieurin bei ah ingenieure">
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -170,7 +169,7 @@
 <section id="ueber-uns">
   <div class="about-img-wrap reveal-left">
     <div class="about-img-frame">
-      <img src="images/Image7.jpg" class="about-img" alt="Antoniette Hoerweg – Bauingenieurin">
+      <img src="images/Image7.jpg" class="about-img" loading="lazy" alt="Antoniette Hoerweg – Bauingenieurin">
     </div>
     <div class="about-img-badge">
       <span class="badge-num">11+</span>
@@ -377,7 +376,7 @@
 
 <!-- IMPRESSUM MODAL -->
 <div class="modal-overlay" id="modal-impressum" role="dialog" aria-modal="true" aria-labelledby="modal-impressum-title">
-  <div class="modal-box">
+  <div class="modal-box" tabindex="-1">
     <button class="modal-close" aria-label="Schließen"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-xmark"></use></svg></button>
     <h2 id="modal-impressum-title">Impressum</h2>
     <h3>Angaben gemäß § 5 DDG</h3>
@@ -407,7 +406,7 @@
 
 <!-- DATENSCHUTZ MODAL -->
 <div class="modal-overlay" id="modal-datenschutz" role="dialog" aria-modal="true" aria-labelledby="modal-datenschutz-title">
-  <div class="modal-box">
+  <div class="modal-box" tabindex="-1">
     <button class="modal-close" aria-label="Schließen"><svg class="icon" aria-hidden="true" focusable="false"><use href="#icon-xmark"></use></svg></button>
     <h2 id="modal-datenschutz-title">Datenschutzerklärung</h2>
     <h3>1. Verantwortlicher</h3>
@@ -430,8 +429,8 @@
     <p>Diese Website bindet die Schriftart „Raleway" über Google Fonts ein, die von Servern von Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland) geladen wird. Dabei wird eine Verbindung zu Google-Servern aufgebaut und Ihre IP-Adresse an Google übermittelt. Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) an einer einheitlichen und ansprechenden Darstellung unserer Website. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Datenschutzerklärung</a>.</p>
     <h3>9. Cookies & lokale Speicherung</h3>
     <p>Diese Website verwendet keine Tracking- oder Marketing-Cookies. Beim ersten Besuch erscheint ein Hinweisbanner zu dieser Datenschutzerklärung. Ihre Bestätigung wird ausschließlich lokal in Ihrem Browser gespeichert (sogenannter „Local Storage", kein Cookie), damit der Hinweis nicht bei jedem Besuch erneut erscheint. Dabei werden keine Daten an uns oder Dritte übertragen. Sie können diese lokale Speicherung jederzeit über die Einstellungen Ihres Browsers löschen.</p>
-    <h3>10. Webanalyse mit Plausible Analytics</h3>
-    <p>Wir nutzen den Analysedienst Plausible zur anonymen Auswertung von Besucherzahlen. Plausible setzt keine Cookies und erhebt keine personenbezogenen Daten; es werden keine Profile über einzelne Nutzer erstellt und keine Daten an Dritte weitergegeben oder mit anderen Diensten zusammengeführt. Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) an der bedarfsgerechten Gestaltung unserer Website. Weitere Informationen: <a href="https://plausible.io/data-policy" target="_blank" rel="noopener noreferrer">Plausible Datenrichtlinie</a>.</p>
+    <h3>10. Webanalyse</h3>
+    <p>Diese Website nutzt keinen Webanalyse- oder Tracking-Dienst. Es findet keine Auswertung Ihres Nutzungsverhaltens statt und es werden keine Nutzungsdaten an Analyseanbieter übermittelt.</p>
     <h3>11. Soziale Medien</h3>
     <p>Auf unserer Website verlinken wir auf unser Instagram-Profil. Beim Anklicken des Links verlassen Sie unsere Website und gelangen zu Instagram, wo eine eigene Datenschutzerklärung des Anbieters Meta Platforms Ireland Limited gilt. Es findet dabei keine automatische Datenübertragung durch unsere Website statt, sondern erst nach Ihrem aktiven Klick auf den Link.</p>
   </div>

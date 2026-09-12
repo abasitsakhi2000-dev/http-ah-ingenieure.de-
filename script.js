@@ -1,3 +1,21 @@
+// ═══════════════════════════════
+// CLICKJACKING-SCHUTZ
+// GitHub Pages kann keine eigenen HTTP-Header senden. X-Frame-Options gibt es nur
+// als Header, und CSP 'frame-ancestors' wird im <meta>-Tag laut Spezifikation
+// ignoriert – die Seite hat daher sonst keinerlei Frame-Schutz.
+// Ersatzlösung: Wird die Seite fremd eingebettet, bricht sie aus dem Frame aus.
+// Kein vollwertiger Ersatz (ein iframe mit sandbox-Attribut kann das verhindern),
+// deckt aber den üblichen Angriffsfall ab.
+// ═══════════════════════════════
+if (window.top !== window.self) {
+  try {
+    window.top.location = window.self.location;
+  } catch (e) {
+    // Ausbruch vom Frame blockiert -> Inhalt nicht anzeigen
+    document.documentElement.style.display = 'none';
+  }
+}
+
 const EMAILJS_PUBLIC_KEY  = "sds-kbzJ3s7BHXYaN";
 const EMAILJS_SERVICE_ID  = "service_0xtq7js";
 const EMAILJS_TEMPLATE_ID = "template_5bvpzse";
@@ -76,8 +94,12 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
 // ═══════════════════════════════
 // COUNT-UP ANIMATION
 // ═══════════════════════════════
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 function animateCount(el) {
   const target = parseInt(el.dataset.target);
+  // Bei reduzierter Bewegung direkt den Endwert setzen statt hochzuzählen
+  if (prefersReducedMotion.matches) { el.textContent = target; return; }
   const duration = 1600;
   const start = performance.now();
   function step(now) {
@@ -105,16 +127,42 @@ document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
 // ═══════════════════════════════
 // MODAL
 // ═══════════════════════════════
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+let lastFocusedBeforeModal = null;
+
 function openModal(id) {
   const m = document.getElementById('modal-' + id);
   if (!m) return;
+  lastFocusedBeforeModal = document.activeElement;
   m.classList.add('open');
   document.body.style.overflow = 'hidden';
+  const box = m.querySelector('.modal-box');
+  if (box) box.focus();
 }
 function closeModalEl(overlay) {
   overlay.classList.remove('open');
   document.body.style.overflow = '';
+  if (lastFocusedBeforeModal && typeof lastFocusedBeforeModal.focus === 'function') {
+    lastFocusedBeforeModal.focus();
+  }
+  lastFocusedBeforeModal = null;
 }
+
+// Tastaturfokus bleibt im geöffneten Dialog (WCAG 2.1.2 "Keine Tastaturfalle")
+document.addEventListener('keydown', function (e) {
+  if (e.key !== 'Tab') return;
+  const open = document.querySelector('.modal-overlay.open');
+  if (!open) return;
+  const items = Array.from(open.querySelectorAll(FOCUSABLE))
+    .filter(el => el.offsetParent !== null || el === document.activeElement);
+  if (!items.length) return;
+  const first = items[0], last = items[items.length - 1];
+  if (e.shiftKey && (document.activeElement === first || !open.contains(document.activeElement))) {
+    e.preventDefault(); last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault(); first.focus();
+  }
+});
 
 document.querySelectorAll('[data-modal]').forEach(el => {
   el.addEventListener('click', (e) => {
