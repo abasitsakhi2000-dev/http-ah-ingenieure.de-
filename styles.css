@@ -1224,3 +1224,113 @@ footer {
   .hero-title { font-size: 52px; }
   .hero-subtitle { font-size: 24px; }
   .about-content h2 { font-size: 38px; }
+}
+
+/* ═══════════════════════════════
+   BARRIEREFREIHEIT & TECHNIK
+   Rein funktionale Ergänzungen – im normalen Seitenbild nicht sichtbar.
+═══════════════════════════════ */
+
+/* Sprunglink: liegt außerhalb des Sichtbereichs und erscheint nur bei Tastaturfokus */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 4000;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: #1a1a00;
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* Sichtbarer Fokusrahmen – erscheint ausschließlich bei Tastaturbedienung,
+   nicht bei Maus- oder Touch-Nutzung. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+main:focus,
+.modal-box:focus {
+  outline: none;
+}
+
+/* Nutzer mit reduzierter Bewegung: Animationen aus, Inhalte trotzdem vollständig sichtbar */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ═══════════════════════════════
+   404-SEITE (nur 404.html – wirkt sich nicht auf die Startseite aus)
+═══════════════════════════════ */
+.nf-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  background: var(--bg-dark);
+}
+.nf-logo { align-items: center; margin-bottom: 48px; }
+.nf-code {
+  font-size: clamp(80px, 18vw, 160px);
+  font-weight: 200;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+.nf-title {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  margin-top: 16px;
+}
+.nf-text {
+  max-width: 520px;
+  margin-top: 18px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-light);
+}
+.nf-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 40px;
+}
+.nf-contact {
+  margin-top: 40px;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-gray);
+}
+.nf-contact a {
+  color: var(--text-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(200,230,0,0.4);
+}
+.nf-contact a:hover { color: var(--accent); }
