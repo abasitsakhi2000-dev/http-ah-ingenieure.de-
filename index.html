@@ -7,7 +7,9 @@
      Achtung: frame-ancestors wirkt im <meta>-Tag NICHT (nur als echter Header) –
      der Frame-Schutz läuft ersatzweise über script.js. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.emailjs.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
-<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<!-- Referrer-Policy: nur <meta name="referrer"> wird von Browsern ausgewertet,
+     http-equiv wird ignoriert (kein gültiges Pragma laut HTML-Spezifikation). -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>ah ingenieure – Bauingenieur-Büro in Landshut</title>
 <meta name="description" content="ah ingenieure – Ihr Bauingenieur-Büro in Landshut. Projektaufnahmen, Ausschreibung, Rechnungsprüfung, Bauleitung & Mängelmanagement. VOB-konform, termintreu.">
 <meta name="robots" content="index, follow">
