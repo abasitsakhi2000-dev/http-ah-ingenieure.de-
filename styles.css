@@ -992,6 +992,8 @@ footer {
 }
 .footer-legal a:hover { color: var(--text-white); }
 .footer-copy { font-size: 12px; color: var(--text-gray); }
+.footer-copy a { color: inherit; text-decoration: underline; }
+.footer-copy a:hover { color: var(--text-white); }
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    COUNTER ANIMATION
